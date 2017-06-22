@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-06-22T08:21:12Z</date>
+    <date>2017-06-22T09:17:12Z</date>
     <groups>
         <group>
             <name>ZBX3-DELL-COMPELLENT</name>
@@ -731,23 +731,35 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Controller {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Controller {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -968,24 +980,36 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=3 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Disk {ITEM.VALUE2} is degraded  {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=2 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Disk {ITEM.VALUE2} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
 {#SNMPVALUE} is scDiskNbr</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -1074,23 +1098,35 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scEnclStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Enclosure {#SNMPINDEX} named {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scEnclStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Enclosure {#SNMPINDEX} named {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -1269,53 +1305,83 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scServerCnctvy[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Connectivity of server {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scServerCnctvy[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Connectivity of server {#SNMPVALUE} is partial on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scServerPathCount[{#SNMPVALUE}].change(0)}&lt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} has lost path(s) on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scServerStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scServerStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -1411,29 +1477,42 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scVolumeStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Volume {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX3-DELL-COMPELLENT:scVolumeStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Volume {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
                     <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens/>
@@ -1442,83 +1521,131 @@
     <triggers>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}&lt;3</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is abnormal</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=5</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is critical</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=4</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is noncritical</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>1</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=6</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is nonrecoverable</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:icmpping.avg(600)}&gt;0 and {ZBX3-DELL-COMPELLENT:icmppingloss.avg(600)}&gt;1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Packet loss detected on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:sysUpTime.change(0)}&lt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} has just been restarted</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:icmpping.last(0)}=0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} is UNREACHABLE or DOWN</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
             <expression>{ZBX3-DELL-COMPELLENT:sysName.diff(0)}&gt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} name has changed</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>1</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
     </triggers>
     <value_maps>
