@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.0</version>
-    <date>2016-08-01T13:40:25Z</date>
+    <version>3.2</version>
+    <date>2017-06-22T08:21:12Z</date>
     <groups>
         <group>
             <name>ZBX3-DELL-COMPELLENT</name>
@@ -787,6 +787,50 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
+                            <name>ID for disk $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>scDiskId[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Disk(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Position for disk $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -923,8 +967,8 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>Disk {#SNMPVALUE} is degraded  {HOST.NAME}</name>
+                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=3 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
+                            <name>Disk {ITEM.VALUE2} is degraded  {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -933,12 +977,13 @@
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>Disk {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=2 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
+                            <name>Disk {ITEM.VALUE2} is down on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
-                            <priority>5</priority>
-                            <description/>
+                            <priority>4</priority>
+                            <description>{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
+{#SNMPVALUE} is scDiskNbr</description>
                             <type>0</type>
                             <dependencies/>
                         </trigger_prototype>
@@ -1282,7 +1327,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.26.1.4]</snmp_oid>
                     <key>scVolumeName</key>
-                    <delay>3600</delay>
+                    <delay>60</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -1302,9 +1347,16 @@
                     <privatekey/>
                     <port/>
                     <filter>
-                        <evaltype>0</evaltype>
+                        <evaltype>1</evaltype>
                         <formula/>
-                        <conditions/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>@No snap</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
                     </filter>
                     <lifetime>7</lifetime>
                     <description/>
@@ -1316,7 +1368,7 @@
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.4.1.16139.2.26.1.3.{#SNMPINDEX}</snmp_oid>
                             <key>scVolumeStatus[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
+                            <delay>60</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -1362,7 +1414,7 @@
                             <name>Volume {#SNMPVALUE} is degraded on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
-                            <priority>3</priority>
+                            <priority>4</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
@@ -1372,7 +1424,7 @@
                             <name>Volume {#SNMPVALUE} is down on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
-                            <priority>5</priority>
+                            <priority>1</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
@@ -1413,7 +1465,7 @@
             <name>Global status of {HOST.NAME} is noncritical</name>
             <url/>
             <status>0</status>
-            <priority>2</priority>
+            <priority>1</priority>
             <description/>
             <type>0</type>
             <dependencies/>
