@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.0</version>
-    <date>2017-06-22T08:21:12Z</date>
+    <version>3.2</version>
+    <date>2017-07-10T14:37:35Z</date>
     <groups>
         <group>
-            <name>ZBX3-DELL-COMPELLENT</name>
+            <name>Templates</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>ZBX3-DELL-COMPELLENT</template>
-            <name>ZBX3-DELL-COMPELLENT</name>
+            <template>Template Dell Compellent</template>
+            <name>Template Dell Compellent</name>
             <description/>
             <groups>
                 <group>
-                    <name>ZBX3-DELL-COMPELLENT</name>
+                    <name>Templates</name>
                 </group>
             </groups>
             <applications>
@@ -28,22 +28,22 @@
                     <name>Enclosure(s)</name>
                 </application>
                 <application>
+                    <name>Fan(s)</name>
+                </application>
+                <application>
                     <name>Information(s)</name>
+                </application>
+                <application>
+                    <name>Power(s)</name>
                 </application>
                 <application>
                     <name>Server(s)</name>
                 </application>
                 <application>
+                    <name>Temperature(s)</name>
+                </application>
+                <application>
                     <name>Volume(s)</name>
-                </application>
-                <application>
-                    <name>Fans</name>
-                </application>
-                <application>
-                    <name>Power Supply</name>
-                </application>
-                <application>
-                    <name>Temperature</name>
                 </application>
             </applications>
             <items>
@@ -527,6 +527,776 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
+                    <name>Fan(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.16.1.4]</snmp_oid>
+                    <key>scCtlrFanName</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Status of &quot;$1&quot; in Controller 1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.16.1.3.1.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrFanStatus1[{#SNMPVALUE}]</key>
+                            <delay>905</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Fan(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Status of &quot;$1&quot; in Controller 2</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.16.1.3.2.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrFanStatus2[{#SNMPVALUE}]</key>
+                            <delay>910</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Fan(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrFanStatus1[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrFanStatus1[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrFanStatus2[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrFanStatus2[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Power(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.17.1.4]</snmp_oid>
+                    <key>scCtlrPowerName</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Status of &quot;$1&quot; in Controller 1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.17.1.3.1.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrPowerStatus1[{#SNMPVALUE}]</key>
+                            <delay>935</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Status of &quot;$1&quot; in Controller 2</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.17.1.3.2.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrPowerStatus2[{#SNMPVALUE}]</key>
+                            <delay>945</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrPowerStatus1[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrPowerStatus1[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrPowerStatus2[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrPowerStatus2[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Temperature(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.19.1.4]</snmp_oid>
+                    <key>scCtlrTempName</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.5.1.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrTempCurrentC1[{#SNMPVALUE}]</key>
+                            <delay>308</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.5.2.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrTempCurrentC2[{#SNMPVALUE}]</key>
+                            <delay>309</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Status of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.3.1.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrTempStatus1[{#SNMPVALUE}]</key>
+                            <delay>306</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Status of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.3.2.{#SNMPINDEX}</snmp_oid>
+                            <key>scCtlrTempStatus2[{#SNMPVALUE}]</key>
+                            <delay>307</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempStatus1[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempStatus1[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempStatus2[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempStatus2[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempCurrentC1[{#SNMPVALUE}].last(0)}&gt;65</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>TEMPERATURE SENSOR {#SNMPVALUE} CONTROLLER 1 &gt; $1</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scCtlrTempCurrentC2[{#SNMPVALUE}].last(0)}&gt;65</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>TEMPERATURE SENSOR {#SNMPVALUE} CONTROLLER 2 &gt; $1</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Temperature of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>DD0000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template Dell Compellent</host>
+                                        <key>scCtlrTempCurrentC1[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>Temperature of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>DD0000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template Dell Compellent</host>
+                                        <key>scCtlrTempCurrentC2[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
                     <name>Controller(s)</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -696,24 +1466,36 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <expression>{Template Dell Compellent:scCtrlStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Controller {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{Template Dell Compellent:scCtrlStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Controller {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -759,140 +1541,8 @@
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.4.1.16139.2.45.1.6.{#SNMPINDEX}</snmp_oid>
                             <key>scDiskConfigModel[{#SNMPVALUE}]</key>
-                            <delay>86400</delay>
-                            <history>90</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>1</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Disk(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>ID for disk $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.7.{#SNMPINDEX}</snmp_oid>
-                            <key>scDiskId[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Disk(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Size of Disk $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>1</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.9.{#SNMPINDEX}</snmp_oid>
-                            <key>scDiskSize[{#SNMPVALUE}]</key>
-                            <delay>86400</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>B</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1073741824</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Disk(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Position for disk $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>scDiskPosition[{#SNMPVALUE}]</key>
                             <delay>3600</delay>
-                            <history>7</history>
+                            <history>90</history>
                             <trends>0</trends>
                             <status>0</status>
                             <value_type>1</value_type>
@@ -975,13 +1625,57 @@
                             <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
+                            <name>ID for disk $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>scDiskId[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Disk(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Type of Disk $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.10.{#SNMPINDEX}</snmp_oid>
                             <key>scDiskIoPortType[{#SNMPVALUE}]</key>
-                            <delay>86400</delay>
+                            <delay>3600</delay>
                             <history>30</history>
                             <trends>180</trends>
                             <status>0</status>
@@ -1017,6 +1711,94 @@
                             <valuemap>
                                 <name>scDiskType</name>
                             </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Position for disk $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>scDiskPosition[{#SNMPVALUE}]</key>
+                            <delay>3600</delay>
+                            <history>7</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Disk(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Size of Disk $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>1</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.14.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>scDiskSize[{#SNMPVALUE}]</key>
+                            <delay>3600</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1073741824</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Disk(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
                             <logtimefmt/>
                             <application_prototypes/>
                         </item_prototype>
@@ -1113,35 +1895,175 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=3 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>Disk {ITEM.VALUE2} is degraded  {HOST.NAME}</name>
+                            <expression>{Template Dell Compellent:scDiskStatus[{#SNMPVALUE}].last(0)}=3 and {Template Dell Compellent:scDiskId[{#SNMPVALUE}].last(0)}&gt;0 and {Template Dell Compellent:scDiskPosition[{#SNMPVALUE}].last()}&lt;&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Disk {#SNMPVALUE} ({ITEM.VALUE3} {ITEM.VALUE2}) is degraded  {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
-                            <description/>
+                            <description>{ITEM.VALUE3} is position on Compellent&#13;
+{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
+{#SNMPVALUE} is unquie id on Compellent scDiskNbr</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=2 and {ZBX3-DELL-COMPELLENT:scDiskId[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>Disk {ITEM.VALUE2} is down on {HOST.NAME}</name>
+                            <expression>{Template Dell Compellent:scDiskStatus[{#SNMPVALUE}].last(0)}=2 and {Template Dell Compellent:scDiskId[{#SNMPVALUE}].last(0)}&gt;0 and {Template Dell Compellent:scDiskPosition[{#SNMPVALUE}].last()}&lt;&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Disk {#SNMPVALUE} ({ITEM.VALUE3} {ITEM.VALUE2}) is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
-                            <description>{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
-{#SNMPVALUE} is scDiskNbr</description>
+                            <description>{ITEM.VALUE3} is position on Compellent&#13;
+{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
+{#SNMPVALUE} is unquie id on Compellent scDiskNbr</description>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scDiskHealthy[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>Disk {#SNMPVALUE} is not healthy in {HOST.NAME}</name>
+                            <expression>{Template Dell Compellent:scDiskHealthy[{#SNMPVALUE}].last(0)}=2 and {Template Dell Compellent:scDiskId[{#SNMPVALUE}].last(0)}&gt;0 and {Template Dell Compellent:scDiskPosition[{#SNMPVALUE}].last()}&lt;&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Disk {#SNMPVALUE} ({ITEM.VALUE3} {ITEM.VALUE2}) is not healthy in {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>1</status>
+                            <priority>1</priority>
+                            <description>{ITEM.VALUE3} is position on Compellent&#13;
+{ITEM.VALUE2} is the disk number on Compellent (ApiIndex)&#13;
+{#SNMPVALUE} is unquie id on Compellent scDiskNbr</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Enclosure(s) Fan(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.20.1.4]</snmp_oid>
+                    <key>scEnclFanLocation</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Status of Fan &quot;{#SNMPVALUE}&quot; in Enclosure {#SNMPINDEX}</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.20.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>scEnclFanStatus[{#SNMPVALUE}][{#SNMPINDEX}]</key>
+                            <delay>900</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Fan(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclFanStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 2 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclFanStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 2 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -1229,27 +2151,366 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <expression>{Template Dell Compellent:scEnclStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Enclosure {#SNMPINDEX} named {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{Template Dell Compellent:scEnclStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Enclosure {#SNMPINDEX} named {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Enclosure(s) Power(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.21.1.4]</snmp_oid>
+                    <key>scEnclPowerPosition</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Status of Power Supply {#SNMPVALUE} in Enclosure {#SNMPINDEX}</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.21.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>scEnclPowerStatus[{#SNMPVALUE}][{#SNMPINDEX}]</key>
+                            <delay>900</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Power(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclPowerStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS POWER SUPPLY 1 IN ENCLOSURE {#SNMPVALUE} IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclPowerStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS POWER SUPPLY 1 IN ENCLOSURE {#SNMPVALUE} IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Enclosure(s) Temperature(s)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.23.1.4]</snmp_oid>
+                    <key>scEnclTempLocation</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure {#SNMPINDEX}</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>1.3.6.1.4.1.16139.2.23.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>scEnclTempCurrentC[{#SNMPINDEX}][{#SNMPVALUE}]</key>
+                            <delay>304</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Status of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure {#SNMPINDEX}</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.4.1.16139.2.23.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>scEnclTempStatus[{#SNMPVALUE}][{#SNMPINDEX}]</key>
+                            <delay>301</delay>
+                            <history>30</history>
+                            <trends>180</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Temperature(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>scScStatus</name>
+                            </valuemap>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclTempStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 1 IS DEGRADED</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclTempStatus[{#SNMPVALUE}][{#SNMPINDEX}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 1 IS DOWN</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Dell Compellent:scEnclTempCurrentC[{#SNMPINDEX}][{#SNMPVALUE}].last(0)}&gt;65</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>TEMPERATURE SENSOR {#SNMPVALUE} ENCLOSURE 2 &gt;$1</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure {#SNMPINDEX}</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>DD0000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template Dell Compellent</host>
+                                        <key>scEnclTempCurrentC[{#SNMPINDEX}][{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
                     <host_prototypes/>
                 </discovery_rule>
                 <discovery_rule>
@@ -1424,54 +2685,84 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scServerCnctvy[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{Template Dell Compellent:scServerCnctvy[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Connectivity of server {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scServerCnctvy[{#SNMPVALUE}].last(0)}=3</expression>
+                            <expression>{Template Dell Compellent:scServerCnctvy[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Connectivity of server {#SNMPVALUE} is partial on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scServerPathCount[{#SNMPVALUE}].change(0)}&lt;1</expression>
+                            <expression>{Template Dell Compellent:scServerPathCount[{#SNMPVALUE}].change(0)}&lt;1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} has lost path(s) on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scServerStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <expression>{Template Dell Compellent:scServerStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scServerStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{Template Dell Compellent:scServerStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Server {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
@@ -1483,7 +2774,7 @@
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.26.1.4]</snmp_oid>
                     <key>scVolumeName</key>
-                    <delay>60</delay>
+                    <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -1566,1389 +2857,43 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scVolumeStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <expression>{Template Dell Compellent:scVolumeStatus[{#SNMPVALUE}].last(0)}=3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Volume {#SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scVolumeStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{Template Dell Compellent:scVolumeStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
                             <name>Volume {#SNMPVALUE} is down on {HOST.NAME}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
                             <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>Fan(s)</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.16.1.4]</snmp_oid>
-                    <key>scCtlrFanName</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of &quot;$1&quot; in Controller 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.16.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrFanStatus1[{#SNMPVALUE}]</key>
-                            <delay>905</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Fans</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of &quot;$1&quot; in Controller 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.16.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrFanStatus2[{#SNMPVALUE}]</key>
-                            <delay>910</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Fans</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrFanStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrFanStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrFanStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrFanStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>Power Supply</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.17.1.4]</snmp_oid>
-                    <key>scCtlrPowerName</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of &quot;$1&quot; in Controller 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.17.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrPowerStatus1[{#SNMPVALUE}]</key>
-                            <delay>935</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Power Supply</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of &quot;$1&quot; in Controller 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.17.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrPowerStatus2[{#SNMPVALUE}]</key>
-                            <delay>945</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Power Supply</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrPowerStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrPowerStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrPowerStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrPowerStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>Temperature(s)</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.19.1.4]</snmp_oid>
-                    <key>scCtlrTempName</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>1.3.6.1.4.1.16139.2.19.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrTempStatus1[{#SNMPVALUE}]</key>
-                            <delay>306</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrTempStatus2[{#SNMPVALUE}]</key>
-                            <delay>307</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrTempCurrentC1[{#SNMPVALUE}]</key>
-                            <delay>308</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>C</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.19.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>scCtlrTempCurrentC2[{#SNMPVALUE}]</key>
-                            <delay>309</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>C</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 1 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 1 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 2 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} CONTROLLER 2 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempCurrentC1[{#SNMPVALUE}].last(0)}&gt;65</expression>
-                            <name>TEMPERATURE SENSOR {#SNMPVALUE} CONTROLLER 1 &gt; $1</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scCtlrTempCurrentC2[{#SNMPVALUE}].last(0)}&gt;65</expression>
-                            <name>TEMPERATURE SENSOR {#SNMPVALUE} CONTROLLER 2 &gt; $1</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                            <dependencies/>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes>
-                        <graph_prototype>
-                            <name>Temperature of Sensor &quot;{#SNMPVALUE}&quot; in Controller 1</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>DD0000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX3-DELL-COMPELLENT</host>
-                                        <key>scCtlrTempCurrentC1[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>Temperature of Sensor &quot;{#SNMPVALUE}&quot; in Controller 2</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>DD0000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX3-DELL-COMPELLENT</host>
-                                        <key>scCtlrTempCurrentC2[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                    </graph_prototypes>
-                    <host_prototypes/>
-                </discovery_rule>
-
-                <discovery_rule>
-                    <name>ENCLOSURE FANS</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.20.1.4]</snmp_oid>
-                    <key>scEnclFanLocation</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of Fan &quot;$1&quot; in Enclosure 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.20.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclFanStatus1[{#SNMPVALUE}]</key>
-                            <delay>900</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Fans</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of Fan &quot;$1&quot; in Enclosure 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.20.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclFanStatus2[{#SNMPVALUE}]</key>
-                            <delay>900</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Fans</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclFanStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 1 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclFanStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 1 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclFanStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 2 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclFanStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS FAN {#SNMPVALUE} ENCLOSURE 2 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>ENCLOSURE POWER SUPPLY</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.21.1.4]</snmp_oid>
-                    <key>scEnclPowerPosition</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of Power Supply 1 in Enclosure $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.21.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclPowerStatus1[{#SNMPVALUE}]</key>
-                            <delay>900</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Power Supply</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of Power Supply 2 in Enclosure {#SNMPVALUE}</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>1.3.6.1.4.1.16139.2.21.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclPowerStatus2[{#SNMPVALUE}]</key>
-                            <delay>900</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Power Supply</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclPowerStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS POWER SUPPLY 1 IN ENCLOSURE {#SNMPVALUE} IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclPowerStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS POWER SUPPLY 1 IN ENCLOSURE {#SNMPVALUE} IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclPowerStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS POWER SUPPLY 2 IN ENCLOSURE {#SNMPVALUE} IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclPowerStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS POWER SUPPLY 2 IN ENCLOSURE {#SNMPVALUE} IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes/>
-                    <host_prototypes/>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>ENCLOSURE TEMPERATURE</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>discovery[{#SNMPVALUE},.1.3.6.1.4.1.16139.2.23.1.4]</snmp_oid>
-                    <key>scEnclTempLocation</key>
-                    <delay>86400</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>
-                        <evaltype>0</evaltype>
-                        <formula/>
-                        <conditions/>
-                    </filter>
-                    <lifetime>1</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>Status of Sensor &quot;$1&quot; in Enclosure 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.23.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclTempStatus1[{#SNMPVALUE}]</key>
-                            <delay>301</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Status of Sensor &quot;$1&quot; in Enclosure 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.23.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclTempStatus2[{#SNMPVALUE}]</key>
-                            <delay>302</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>scScStatus</name>
-                            </valuemap>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.16139.2.23.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclTempCurrentC1[{#SNMPVALUE}]</key>
-                            <delay>303</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>C</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>1.3.6.1.4.1.16139.2.23.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>scEnclTempCurrentC2[{#SNMPVALUE}]</key>
-                            <delay>304</delay>
-                            <history>30</history>
-                            <trends>180</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>C</units>
-                            <delta>0</delta>
-                            <snmpv3_contextname/>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>Temperature</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                            <logtimefmt/>
-                            <application_prototypes/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempStatus1[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 1 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempStatus1[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 1 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempStatus2[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 2 IS DEGRADED</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempStatus2[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>STATUS SENSOR {#SNMPVALUE} ENCLOSURE 2 IS DOWN</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempCurrentC1[{#SNMPVALUE}].last(0)}&gt;65</expression>
-                            <name>TEMPERATURE SENSOR {#SNMPVALUE} ENCLOSURE 1 &gt;$1</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX3-DELL-COMPELLENT:scEnclTempCurrentC2[{#SNMPVALUE}].last(0)}&gt;65</expression>
-                            <name>TEMPERATURE SENSOR {#SNMPVALUE} ENCLOSURE 2 &gt;$1</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes>
-                        <graph_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure 1</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>DD0000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX3-DELL-COMPELLENT</host>
-                                        <key>scEnclTempCurrentC1[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>Temp of Sensor &quot;{#SNMPVALUE}&quot; in Enclosure 2</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>DD0000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX3-DELL-COMPELLENT</host>
-                                        <key>scEnclTempCurrentC2[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                    </graph_prototypes>
                     <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens/>
@@ -2956,84 +2901,132 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}&lt;3</expression>
+            <expression>{Template Dell Compellent:productIDGlobalStatus.last(0)}&lt;3</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is abnormal</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=5</expression>
+            <expression>{Template Dell Compellent:productIDGlobalStatus.last(0)}=5</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is critical</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=4</expression>
+            <expression>{Template Dell Compellent:productIDGlobalStatus.last(0)}=4</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is noncritical</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>1</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:productIDGlobalStatus.last(0)}=6</expression>
+            <expression>{Template Dell Compellent:productIDGlobalStatus.last(0)}=6</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Global status of {HOST.NAME} is nonrecoverable</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:icmpping.avg(600)}&gt;0 and {ZBX3-DELL-COMPELLENT:icmppingloss.avg(600)}&gt;1</expression>
+            <expression>{Template Dell Compellent:icmpping.avg(600)}&gt;0 and {Template Dell Compellent:icmppingloss.avg(600)}&gt;1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>Packet loss detected on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>3</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:sysUpTime.change(0)}&lt;0</expression>
+            <expression>{Template Dell Compellent:sysUpTime.change(0)}&lt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} has just been restarted</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:icmpping.last(0)}=0</expression>
+            <expression>{Template Dell Compellent:icmpping.last(0)}=0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} is UNREACHABLE or DOWN</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
         <trigger>
-            <expression>{ZBX3-DELL-COMPELLENT:sysName.diff(0)}&gt;0</expression>
+            <expression>{Template Dell Compellent:sysName.diff(0)}&gt;0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
             <name>{HOST.NAME} name has changed</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
             <url/>
             <status>0</status>
             <priority>1</priority>
             <description/>
             <type>0</type>
+            <manual_close>0</manual_close>
             <dependencies/>
+            <tags/>
         </trigger>
     </triggers>
     <value_maps>
@@ -3051,6 +3044,48 @@
                 <mapping>
                     <value>2</value>
                     <newvalue>Unreachable (maybe)</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>scDiskHealthy</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Healthy</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Not Healthy</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Unknown</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>scDiskType</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>FibreChannel</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>iSCSI</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>FibreChannelOverEthernet</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>SAS</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Unknown</newvalue>
                 </mapping>
             </mappings>
         </value_map>
@@ -3101,23 +3136,6 @@
             </mappings>
         </value_map>
         <value_map>
-            <name>scServerCnctvy</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>Up</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>Down</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>Partial</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
             <name>scScStatus</name>
             <mappings>
                 <mapping>
@@ -3135,44 +3153,19 @@
             </mappings>
         </value_map>
         <value_map>
-            <name>scDiskHealthy</name>
+            <name>scServerCnctvy</name>
             <mappings>
                 <mapping>
                     <value>1</value>
-                    <newvalue>Healthy</newvalue>
+                    <newvalue>Up</newvalue>
                 </mapping>
                 <mapping>
                     <value>2</value>
-                    <newvalue>Not Healthy</newvalue>
+                    <newvalue>Down</newvalue>
                 </mapping>
                 <mapping>
                     <value>3</value>
-                    <newvalue>Unknown</newvalue>
-                </mapping>
-            </mappings>
-        </value_map>
-        <value_map>
-            <name>scDiskType</name>
-            <mappings>
-                <mapping>
-                    <value>1</value>
-                    <newvalue>FibreChannel</newvalue>
-                </mapping>
-                <mapping>
-                    <value>2</value>
-                    <newvalue>iSCSI</newvalue>
-                </mapping>
-                <mapping>
-                    <value>3</value>
-                    <newvalue>FibreChannelOverEthernet</newvalue>
-                </mapping>
-                <mapping>
-                    <value>4</value>
-                    <newvalue>SAS</newvalue>
-                </mapping>
-                <mapping>
-                    <value>5</value>
-                    <newvalue>Unknown</newvalue>
+                    <newvalue>Partial</newvalue>
                 </mapping>
             </mappings>
         </value_map>
